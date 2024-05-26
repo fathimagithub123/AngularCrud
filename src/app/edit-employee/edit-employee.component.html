@@ -1,0 +1,45 @@
+<div class="border rounded text-center w-100 p-5 bg-warning">
+  <h1>Edit An Employee</h1>
+  <form #addEmployeeForm="ngForm" class="border rounded mt-5 p-3">
+      <div class="form-floating mb-3">
+
+          <input  #id="ngModel" type="text" name="id" [(ngModel)]="employee.id" class="form-control" id="floatingInputId" placeholder="Employee Id" pattern="[a-zA-Z0-9]*" required readonly>
+          <label for="floatingInputId">Employee Id</label>
+        </div>
+        <div *ngIf="id.invalid && id.touched" class="mb-3 text-danger fw-bolder">Invalid User Id</div>
+
+
+        <div class="form-floating mb-3">
+          <input  #name="ngModel" type="text" name="username" [(ngModel)]="employee.name"  class="form-control" id="floatingInputUsername" placeholder="Username" >
+          <label for="floatingInputUsername">Username</label>
+        </div>
+        <div *ngIf="name.invalid && name.touched" class="mb-3 text-danger fw-bolder">Invalid User name</div>
+
+
+        <div class="form-floating mb-3">
+          <input  #email="ngModel"  type="text" name="email" [(ngModel)]="employee.email" class="form-control" id="floatingInputMail" placeholder="Employee Mail">
+          <label for="floatingInputMail">Employee Mail</label>
+        </div>
+        <div *ngIf="email.invalid && email.touched" class="mb-3 text-danger fw-bolder">Invalid User email</div>
+
+
+      <div class="form-floating mb-3">
+          <select   #status="ngModel"  name="status" [(ngModel)]="employee.status" class="form-control" id="floatingInputStatus" placeholder="Employee status" required>
+              <option value="1">Active</option>
+              <option value="0">InActive</option>
+  
+          </select>
+          <label for="floatingInputStatus">Employee Status</label>
+        </div>
+        <div *ngIf="status.invalid && status.touched" class="mb-3 text-danger fw-bolder">Invalid User status</div>
+
+     
+        <div class="d-flex ">
+          <button (click)="updateEmployee()"  [disabled]="addEmployeeForm.invalid"  class="btn btn-success ">Update</button> 
+               <button  (click)="cancel(employee.id)"  class="btn btn-primary ms-5 ">Cancel</button>
+    
+    
+              </div>
+    </form>
+  
+</div>

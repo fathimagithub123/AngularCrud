@@ -1,0 +1,90 @@
+<!-- <div class="d-flex justify-content-between mt-5  "> 
+    <h1 class="fw-bolder">Employee List</h1>
+   <button routerLink="/add-employee" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i>New Employee</button>
+   </div>
+
+<div class="table rounded box shadow">
+   
+   <div class="mt-5">
+<table class="table">
+<thead>
+   <tr>
+      
+      <th>Emp ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Status</th>
+      <th>...</th>
+      
+
+   </tr>
+</thead>
+<tbody>
+   <tr *ngFor="let employee of allEmployee;let i=index;">
+     
+      <td>{{employee.id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.email}}</td>
+      <td ><span [ngClass]="employee.status=='1'?'btn btn-success':'btn btn-warning'" >{{employee.status=="1"?"Active":"InActive"}}</span></td>
+      <td>
+         <button [routerLink]="['/edit-employee', employee.id]" class="btn btn-primary me-2 "><i class="fa-solid fa-edit"></i></button>
+         <button (click)="deleteEmployee(employee.id)" class="btn btn-danger  "><i class="fa-solid fa-trash"></i></button>
+
+      </td>
+      
+
+   </tr>
+   
+</tbody>
+</table>
+
+   </div>
+ </div>
+
+   
+
+
+ -->
+ <div class="container-fluid bg-yellow">
+   <div class="d-flex justify-content-between mt-5">
+       <h1 class="fw-bolder">Employee List</h1>
+       <button routerLink="/add-employee" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i>New Employee</button>
+   </div>
+
+   <div class="table rounded box shadow mt-5">
+       <div>
+           <table class="table">
+               <thead>
+                   <tr>
+                       <th>Emp ID</th>
+                       <th>Name</th>
+                       <th>Email</th>
+                       <th>Status</th>
+                       <th>...</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr *ngFor="let employee of allEmployee; let i=index;">
+                       <td>{{employee.id}}</td>
+                       <td>{{employee.name}}</td>
+                       <td>{{employee.email}}</td>
+                       <td>
+                           <span [ngClass]="employee.status=='1' ? 'btn btn-success' : 'btn btn-warning'">
+                               {{employee.status=="1" ? "Active" : "Inactive"}}
+                           </span>
+                       </td>
+                       <td>
+                           <button [routerLink]="['/edit-employee', employee.id]" class="btn btn-primary me-2">
+                               <i class="fa-solid fa-edit"></i>
+                           </button>
+                           <button (click)="deleteEmployee(employee.id)" class="btn btn-danger">
+                               <i class="fa-solid fa-trash"></i>
+                           </button>
+                       </td>
+                   </tr>
+               </tbody>
+           </table>
+       </div>
+   </div>
+</div>
+
